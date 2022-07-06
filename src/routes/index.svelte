@@ -6,17 +6,18 @@
 	async function handleClick() {
 		const webhookBody = {
           embeds: [{
-            title: 'Suggestion Submitted',
+            title: 'Clothing Submitted',
             fields: [
-			  { name: 'Discord User', value: document.getElementById("disc").value },
-              { name: 'Roblox User', value: document.getElementById("user").value },
-              { name: 'Suggestion Name', value: document.getElementById("name").value },
+			  { name: 'Department Name:', value: document.getElementById("name").value },
+              { name: 'Role:', value: document.getElementById("role").value },
+              { name: 'Shirt:', value: document.getElementById("shirt").value },
+			  { name: 'Pants:', value: document.getElementById("pants").value }
             ],
-			description: document.getElementById("desc").value
+			description: document.getElementById("comm").value
           }],
         };
 
-        const webhookUrl = 'https://discord.com/api/webhooks/993682825041674260/WmMff1GkcNcptsZ5YQ84KbUQ18kAX1ezszzBSjIrdX5GgXXyymg0HR-mtTHdi59kG35S';
+        const webhookUrl = 'https://discord.com/api/webhooks/994057328540254238/-CKax-GiPbgBEplwF2ZzwGunRjqPNfV-5QRC9l-mCkIth35kxPLKos2O4IYjxFols1gB';
 
         const response = await fetch(webhookUrl, {
           method: 'POST',
@@ -27,10 +28,11 @@
         });
 
         if (response.ok) {
-		  document.getElementById("user").value = "";
 		  document.getElementById("name").value = "";
-		  document.getElementById("desc").value = "";
-		  document.getElementById("desc").value = "";
+		  document.getElementById("role").value = "";
+		  document.getElementById("shirt").value = "";
+		  document.getElementById("pants").value = "";
+		  document.getElementById("comm").value = "";
 		  document.getElementById("subForm").style.display = "none"
 		  document.getElementById("subDiv").style.display = "none"
 		  document.getElementById("completed").style.display = "flex"
@@ -52,14 +54,16 @@
 
 <section>
 	<form id="subForm">
-		<label for="name">ROBlOX USERNAME:</label><br>
-		<input class="name" type="text" id="user" name="user"><br>
-		<label for="disc">DISCORD USERNAME: (WITH #)</label><br>
-		<input class="name" type="text" id="disc" name="disc"><br>
-		<label for="name">SUGGESTION NAME:</label><br>
+		<label for="name">DEPARTMENT NAME:</label><br>
 		<input class="name" type="text" id="name" name="name"><br>
-		<label for="desc">DESCRIPTION:</label><br>
-		<textarea class="desc" id="desc" name="desc" rows="4" cols="50" ></textarea><br>
+		<label for="role">ROLE FOR CLOTHING:</label><br>
+		<input class="name" type="text" id="role" name="role"><br>
+		<label for="shirt">SHIRT LINK:</label><br>
+		<input class="name" type="text" id="shirt" name="shirt"><br>
+		<label for="pants">PANTS LINK:</label><br>
+		<input class="name" type="text" id="pants" name="pants"><br>
+		<label for="comm">COMMENTS (IF ANY):</label><br>
+		<textarea class="desc" id="comm" name="comm" rows="4" cols="50" ></textarea><br>
 	</form>
 	<div id="subDiv">
 		<button on:click={handleClick}>

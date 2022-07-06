@@ -5,7 +5,7 @@
 
 <header>
 	<nav>
-		<p>AREA 27 SUGGESTION FORM</p>
+		<p>AREA 27 O5 CLOTHING FORM</p>
 	</nav>
 </header>
 
